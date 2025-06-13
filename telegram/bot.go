@@ -1,15 +1,14 @@
-package main
+package telegram_bot
 
 import (
 	"context"
+	"fmt"
 	"os"
-	"os/signal"
 
 	"github.com/go-telegram/bot"
 )
 func Send(message string) {
-	ctx, cancel := signal.NotifyContext(context.Background(), os.Interrupt)
-	defer cancel()
+	fmt.Println("Telegram sending...")
 	var channel_ids = []int64{
 		-1002556120690, // Particularly my channels i want to manage
 		-1002158048191,
@@ -25,13 +24,16 @@ func Send(message string) {
 	if err != nil {
 		panic(err)
 	}
-	b.Start(ctx)
-	for _, chat_id := range channel_ids {
+	fmt.Println(message, "connected to bot")
 
-	b.SendMessage(ctx, &bot.SendMessageParams{
-		ChatID: chat_id,
-		Text:   message,
-	})
-}
+	for _, chat_id := range channel_ids {
+		fmt.Printf("sending to %d\n", chat_id)
+		b.SendMessage(context.Background(), &bot.SendMessageParams{
+			ChatID: chat_id,
+			Text:   message,
+		})
+	}
+
+	fmt.Println("Message sent")
 }
 
