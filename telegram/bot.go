@@ -10,7 +10,6 @@ import (
 func Send(message string) {
 	fmt.Println("Telegram sending...")
 	var channel_ids = []int64{
-		-1002556120690, // Particularly my channels i want to manage
 		-1002158048191,
 		-1002351566952,
 	}
@@ -31,6 +30,7 @@ func Send(message string) {
 		b.SendMessage(context.Background(), &bot.SendMessageParams{
 			ChatID: chat_id,
 			Text:   message,
+			ParseMode: "MarkdownV2",
 		})
 	}
 
