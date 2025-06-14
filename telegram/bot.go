@@ -18,7 +18,7 @@ func Send(message string) {
 	opts := []bot.Option{
 	
 	}
-
+	fmt.Print(os.Getenv("BOT_TOKEN"))
 	b, err := bot.New(os.Getenv("BOT_TOKEN"), opts...)
 	if err != nil {
 		panic(err)
