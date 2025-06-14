@@ -23,7 +23,7 @@ func Send(message string) {
 	discord.Open()
 	fmt.Println(message)
 	fmt.Println (os.Getenv("DISCORD_TOKEN"))
-	discord.ChannelMessageSend("1383135547597258935", message)
+	discord.ChannelMessageSend("1383195767623127111", message)
 	fmt.Println("Message sent")
 	discord.Close()
 
