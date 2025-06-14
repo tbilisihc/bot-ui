@@ -35,7 +35,7 @@ func main() {
 	fmt.Println(contentString)
 	fmt.Println("--- End of File ---")
 
-	telegram_bot.Send(contentString)
+	// telegram_bot.Send(contentString)
 	discord_bot.Send(contentString)
-	
+	telegram_bot.Send(contentString)
 }
